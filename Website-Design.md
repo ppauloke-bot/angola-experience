@@ -336,10 +336,13 @@ Expanding `Website-Strategy.md` §11.1 into concrete values, per `Motion-Rules.m
 | Token | Duration | Use |
 |---|---|---|
 | Fast | 150ms | Button/hover feedback, `HoverLift` |
-| Medium | 300–400ms | `RevealOnScroll`, mode-toggle transitions |
+| Reveal | 220ms | `RevealOnScroll` only |
+| Medium | 300–400ms | Mode-toggle transitions, accordion/nav expand |
 | Slow | 8–14s (loop or single pass) | `KenBurnsImage` pan/zoom |
 
 Easing: standard ease-out for entrances (content arrives and settles, doesn't overshoot), ease-in-out for hover/press feedback. No bounce/elastic easing anywhere — inconsistent with the "confident, restrained" personality (§2.1).
+
+`RevealOnScroll` was retuned after Build QA found the original 300–400ms band, combined with an `IntersectionObserver` that only fired once an element was already 15% on-screen, made reveals feel laggy and produced a visible "catching up" state during normal scroll speed. The fix has two parts: a faster dedicated `--duration-reveal` token (used only here, not shared with the Medium band), and an anticipatory `rootMargin` on the observer (`0px 0px 150px 0px`, `threshold: 0`) so the reveal starts while the element is still below the fold and finishes before it's actually seen. `prefers-reduced-motion` behavior (opacity-only, no movement) is unchanged.
 
 ## 6.2 Motion Budget (what actually animates)
 
