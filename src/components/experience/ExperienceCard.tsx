@@ -14,13 +14,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
     <HoverLift>
       <Link href={`/experiencias/${experience.slug}`} className="group block">
         <div className="relative">
-          <MediaPlaceholder
-            label={experience.heroImageAlt}
-            aspect="4/5"
-            src={experience.heroImageSrc}
-            sizes="(min-width: 1280px) 380px, (min-width: 640px) 45vw, 100vw"
-            zoomOnHover
-          />
+          <MediaPlaceholder label={experience.heroImageAlt} aspect="4/5" />
           <div className="absolute left-3 top-3">
             <StatusBadge status={experience.status} />
           </div>

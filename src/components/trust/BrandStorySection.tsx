@@ -18,8 +18,6 @@ export function BrandStorySection() {
         <MediaPlaceholder
           label="A barragem das Mabubas, no Bengo"
           aspect="4/5"
-          src="/images/barragem-das-mabubas-bengo.jpg"
-          sizes="(min-width: 1024px) 46vw, 100vw"
           animated
         />
         <div className="flex flex-col gap-10">

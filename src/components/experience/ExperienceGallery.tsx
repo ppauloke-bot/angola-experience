@@ -16,7 +16,6 @@ export function ExperienceGallery({ experience }: { experience: Experience }) {
         aspect="4/5"
         className="col-span-2"
         animated
-        src={experience.heroImageSrc}
       />
       {secondaryLabels.map((label) => (
         <MediaPlaceholder key={label} label={label} aspect="4/5" />

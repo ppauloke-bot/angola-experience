@@ -28,9 +28,6 @@ export function ProvinceLightView({ province }: { province: Province }) {
           aspect="16/9"
           animated
           className="absolute inset-0 h-full w-full rounded-none"
-          src={province.heroImageSrc}
-          sizes="100vw"
-          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
         <PageShell className="relative z-10 pb-12">

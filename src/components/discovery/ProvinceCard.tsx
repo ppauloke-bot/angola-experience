@@ -16,13 +16,7 @@ export function ProvinceCard({ province }: { province: Province }) {
     <HoverLift>
       <Link href={`/explorar/${province.slug}`} className="group block">
         <div className="relative">
-          <MediaPlaceholder
-            label={province.heroImageAlt}
-            aspect="4/5"
-            src={province.heroImageSrc}
-            sizes="(min-width: 1280px) 300px, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-            zoomOnHover
-          />
+          <MediaPlaceholder label={province.heroImageAlt} aspect="4/5" />
           {province.status === "coming-soon" ? (
             <div className="absolute left-3 top-3">
               <Badge tone="neutral">Guia em Expansão</Badge>
