@@ -3,6 +3,7 @@ import { HomeIndexBar, Manifesto } from "@/features/home/Manifesto";
 import { DestinationsEditorial } from "@/features/home/DestinationsEditorial";
 import { InterestInvitation } from "@/features/home/InterestInvitation";
 import { ExperienceStories } from "@/features/home/ExperienceStories";
+import { TravelerVoices } from "@/features/home/TravelerVoices";
 import { TrustEditorial } from "@/features/home/TrustEditorial";
 import { BrandEditorial } from "@/features/home/BrandEditorial";
 import { ClosingInvitation } from "@/features/home/ClosingInvitation";
@@ -17,9 +18,10 @@ import { ClosingInvitation } from "@/features/home/ClosingInvitation";
  * 4. `DestinationsEditorial` — discovery by place.
  * 5. `InterestInvitation` — discovery by way of travelling ("Como quer viver Angola?").
  * 6. `ExperienceStories` — what discovery leads to, concretely.
- * 7. `TrustEditorial` — why to believe it, without invented social proof.
- * 8. `BrandEditorial` — who is behind it.
- * 9. `ClosingInvitation` — conversion, on a photograph rather than a flat band.
+ * 7. `TravelerVoices` — where real testimonials will live (reserved slots, §7).
+ * 8. `TrustEditorial` — why to believe it, without invented social proof.
+ * 9. `BrandEditorial` — who is behind it.
+ * 10. `ClosingInvitation` — conversion, on a photograph rather than a flat band.
  *
  * The inner pages (`/explorar`, `/experiencias`, detail templates, filters,
  * the WhatsApp flow) are unchanged and still own the depth — this page is
@@ -34,6 +36,7 @@ export default function Home() {
       <DestinationsEditorial />
       <InterestInvitation />
       <ExperienceStories />
+      <TravelerVoices />
       <TrustEditorial />
       <BrandEditorial />
       <ClosingInvitation />
