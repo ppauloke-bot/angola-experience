@@ -56,8 +56,14 @@ export function SiteFooter() {
       </PageShell>
 
       <div className="border-t border-cream/10">
-        <PageShell className="py-6 text-caption text-cream/60">
+        <PageShell className="flex flex-col gap-2 py-6 text-caption text-cream/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Angola Experience — Todos os direitos reservados.</p>
+          {/* Blanket attribution for the CC BY / CC BY-SA photography, which
+              those licenses require on the page itself; the large editorial
+              images additionally carry a per-photo credit (`PhotoCredit`). */}
+          <p className="text-cream/40 sm:text-right">
+            Fotografia: Wikimedia Commons (CC0 / CC BY / CC BY-SA).
+          </p>
         </PageShell>
       </div>
     </footer>

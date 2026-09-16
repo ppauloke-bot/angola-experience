@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -30,7 +31,17 @@ export default function ExplorarPorInteressePage() {
       </SectionContainer>
       <SectionContainer className="pt-0">
         <PageShell>
-          <InterestExplorer />
+          {/* `InterestExplorer` reads the `?interesse=` query string, so it
+              needs a Suspense boundary for this route to stay prerendered. */}
+          <Suspense
+            fallback={
+              <p className="text-body text-ink-muted">
+                Escolha um interesse para ver experiências e províncias relacionadas.
+              </p>
+            }
+          >
+            <InterestExplorer />
+          </Suspense>
         </PageShell>
       </SectionContainer>
       <ConversionBand />

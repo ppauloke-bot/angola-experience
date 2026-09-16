@@ -16,8 +16,10 @@ export function BrandStorySection() {
     <SectionContainer>
       <PageShell className="grid items-center gap-12 lg:grid-cols-2">
         <MediaPlaceholder
-          label="Equipa Angola Experience (fotografia a confirmar)"
+          label="A barragem das Mabubas, no Bengo"
           aspect="4/5"
+          src="/images/barragem-das-mabubas-bengo.jpg"
+          sizes="(min-width: 1024px) 46vw, 100vw"
           animated
         />
         <div className="flex flex-col gap-10">

@@ -4,7 +4,7 @@ import { SectionContainer } from "@/components/layout/SectionContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ConversionBand } from "@/components/layout/ConversionBand";
 import { BrandStorySection } from "@/components/trust/BrandStorySection";
-import { ReservedTeamSection } from "@/components/trust/ReservedTeamSection";
+import { HowWeWork } from "@/features/about/HowWeWork";
 
 export const metadata: Metadata = {
   title: "Sobre",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Quem é a Angola Experience: uma equipa dedicada a mostrar Angola como ela merece ser vista.",
 };
 
-/** About (§3.6): brand/company story → mission/connection-to-Angola → ReservedTeamSection → conversion band. */
+/** About (§3.6): brand/company story → mission/connection-to-Angola → HowWeWork (the real, built contact flow — see that component for why it replaced the reserved team slot) → conversion band. */
 export default function SobrePage() {
   return (
     <>
@@ -28,7 +28,7 @@ export default function SobrePage() {
       </SectionContainer>
 
       <BrandStorySection />
-      <ReservedTeamSection />
+      <HowWeWork />
 
       <ConversionBand />
     </>

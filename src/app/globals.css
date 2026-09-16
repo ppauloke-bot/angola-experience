@@ -57,6 +57,18 @@
   /* KenBurnsImage — single CSS transform:scale keyframe, GPU-composited,
      no per-frame JS (§4.6, §7.2). */
   --animate-ken-burns: ken-burns 12s var(--ease-settle) both;
+
+  /* Homepage editorial motion. All four are transform/opacity only and
+     run once — no loops except the hero's scroll cue, which is a small,
+     low-contrast affordance rather than decoration (§6.2 motion budget).
+     The global prefers-reduced-motion override below collapses every one
+     of them to their end state, so nothing depends on motion completing. */
+  --animate-rise: rise 800ms var(--ease-settle) both;
+  --animate-fade: fade 900ms var(--ease-settle) both;
+  /* Hero: settles *out* of an initial overscan rather than zooming in, so
+     the image comes to rest instead of drifting forever under the copy. */
+  --animate-hero-settle: hero-settle 2400ms var(--ease-settle) both;
+  --animate-scroll-cue: scroll-cue 2.4s ease-in-out infinite;
 }
 
 @keyframes ken-burns {
@@ -65,6 +77,49 @@
   }
   to {
     transform: scale(1.08);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    transform-origin: top;
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 0.9;
   }
 }
 

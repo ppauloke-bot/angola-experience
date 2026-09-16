@@ -24,6 +24,8 @@ export function MediaPlaceholder({
   animated = false,
   src,
   priority = false,
+  sizes = "(min-width: 1024px) 50vw, 100vw",
+  zoomOnHover = false,
 }: {
   label: string;
   aspect?: "16/9" | "4/5" | "1/1" | "3/4";
@@ -33,6 +35,17 @@ export function MediaPlaceholder({
   /** A real, locally-hosted photo path (e.g. "/images/serra-da-leba-huila.jpg"). Omit to use the abstract placeholder. */
   src?: string;
   priority?: boolean;
+  /**
+   * How wide this image actually renders, for `next/image`'s srcset
+   * selection. The default suits the two-column content blocks this
+   * component was first written for; **full-bleed heroes must pass
+   * `"100vw"`** or they fetch a half-width source and upscale it, which is
+   * visibly soft from about 1440px up. Grid cards should pass their real
+   * column width so they stop over-fetching.
+   */
+  sizes?: string;
+  /** Slow scale-up while an ancestor marked `group` is hovered (cards). */
+  zoomOnHover?: boolean;
 }) {
   // `cn()` does plain concatenation (no Tailwind conflict resolution — see
   // its own doc comment), so a caller-supplied `className` that sets its own
@@ -56,8 +69,13 @@ export function MediaPlaceholder({
           alt={label}
           fill
           priority={priority}
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className={cn("object-cover", animated && "animate-ken-burns motion-reduce:animate-none")}
+          sizes={sizes}
+          className={cn(
+            "object-cover",
+            animated && "animate-ken-burns motion-reduce:animate-none",
+            zoomOnHover &&
+              "transition-transform duration-[900ms] ease-[var(--ease-settle)] group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100",
+          )}
         />
       ) : (
         <>
